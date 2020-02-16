@@ -8,33 +8,38 @@ message Label {
 
 }
 
-message TrainingData {
+message LabeledFeature {
     Feature feature = 1;
     Label label = 2;
 }
 
-message InferenceConfig {
+message PredictionConfig {
 
 }
 
-message LearningConfig {
+message TrainingConfig {
 
 }
 
-message InferRequest {
+message PredictRequest {
     repeated Feature features = 1;
-    InferenceConfig inference_config = 2;
+    PredictionConfig prediction_config = 2;
 }
 
-message InferResponse {
+message PredictResponse {
     repeated Label labels = 1;
 }
 
 message TrainRequest {
-    repeated TrainingData train_set = 1;
-    LearningConfig config = 2;
+    repeated LabeledFeature labeled_feature = 1;
+    TrainingConfig config = 2;
 }
 
 message TrainResponse {
 
+}
+
+service MachineLearningService {
+    rpc Predict (PredictRequest) returns (PredictResponse);
+    rpc Train (TrainRequest) returns (TrainResponse);
 }
