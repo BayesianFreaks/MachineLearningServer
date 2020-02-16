@@ -3,10 +3,15 @@ name = "ml-service"
 version = "0.1.0"
 authors = ["Hiroki Mizukami <piroyoung.m@gmail.com>"]
 edition = "2018"
+publish = false
+
+[[bin]]
+name = "main"
+path = "src/main.rs"
 
 [dependencies]
-grpc = "0.6.2"
-protobuf = "2.8.2"
+tonic = "0.1.1"
+prost = "0.6.1"
 
 [build-dependencies]
-protoc-rust-grpc = "0.6.2"
+tonic-build = "0.1.1"

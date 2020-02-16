@@ -1,5 +1,8 @@
 syntax = "proto3";
 
+package learner;
+
+
 message Feature {
 
 }
@@ -8,9 +11,10 @@ message Label {
 
 }
 
-message LabeledFeature {
-    Feature feature = 1;
-    Label label = 2;
+message Item {
+    string id = 1;
+    Feature feature = 2;
+    Label label = 3;
 }
 
 message PredictionConfig {
@@ -22,16 +26,16 @@ message TrainingConfig {
 }
 
 message PredictRequest {
-    repeated Feature features = 1;
+    repeated Item items = 1;
     PredictionConfig prediction_config = 2;
 }
 
 message PredictResponse {
-    repeated Label labels = 1;
+    repeated Item items = 1;
 }
 
 message TrainRequest {
-    repeated LabeledFeature labeled_features = 1;
+    repeated Item items = 1;
     TrainingConfig config = 2;
 }
 
@@ -39,7 +43,7 @@ message TrainResponse {
 
 }
 
-service MachineLearningService {
+service Learner {
     rpc Predict (PredictRequest) returns (PredictResponse);
-    rpc Train (TrainRequest) returns (TrainResponse);
+    rpc Train (stream TrainRequest) returns (TrainResponse);
 }

@@ -1,8 +1,8 @@
 
 build:
-	cargo build
+	cargo build --bin main
 .PHONY: build
 
 run: build
-	cargo run
+	cargo run --bin main
 .PHONY: run
