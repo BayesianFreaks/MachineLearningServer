@@ -31,7 +31,7 @@ message PredictResponse {
 }
 
 message TrainRequest {
-    repeated LabeledFeature labeled_feature = 1;
+    repeated LabeledFeature labeled_features = 1;
     TrainingConfig config = 2;
 }
 
