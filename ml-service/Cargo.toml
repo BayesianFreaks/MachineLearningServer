@@ -5,7 +5,8 @@ authors = ["Hiroki Mizukami <piroyoung.m@gmail.com>"]
 edition = "2018"
 
 [dependencies]
-protobuf = "2"
+grpc = "0.6.2"
+protobuf = "2.8.2"
 
 [build-dependencies]
-protoc-rust = "2.0"
+protoc-rust-grpc = "0.6.2"
