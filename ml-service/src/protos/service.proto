@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+message Feature {
+
+}
+
+message Label {
+
+}
+
+message TrainingData {
+    Feature feature = 1;
+    Label label = 2;
+}
+
+message InferenceConfig {
+
+}
+
+message LearningConfig {
+
+}
+
+message InferRequest {
+    repeated Feature features = 1;
+    InferenceConfig inference_config = 2;
+}
+
+message InferResponse {
+    repeated Label labels = 1;
+}
+
+message TrainRequest {
+    repeated TrainingData train_set = 1;
+    LearningConfig config = 2;
+}
+
+message TrainResponse {
+
+}
